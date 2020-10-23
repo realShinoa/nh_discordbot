@@ -148,4 +148,4 @@ if(command === 'fu'){
 }
 
 });
-client.login('NzU3NTA4MjE5MzYxODIwNjcz.X2hagQ.yPSVCljLctCdBAAwHM5RFWqFB2g');
+client.login(process.env.token);

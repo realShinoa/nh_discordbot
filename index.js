@@ -14,7 +14,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
    console.log('Bot is online');
-   client.user.setActivity('Nocturnal Hub server', { type : 'WATCHING'}).catch(console.error)
+   client.user.setActivity('Nocturnal Hub, Use .help', { type : 'WATCHING'}).catch(console.error)
 });
 
 client.on('guildMemberAdd', member =>{

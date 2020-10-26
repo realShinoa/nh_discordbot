@@ -58,6 +58,9 @@ client.on('message', async message => {
    if (command === 'welcome') {
       client.commands.get('welcome').execute(message, args);
    }
+   if (command === 'ping') {
+      client.commands.get('ping').execute(message, args);
+   }
 
    if (command === 'gm') {
       client.commands.get('gm').execute(message, args);

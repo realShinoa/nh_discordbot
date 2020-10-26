@@ -1,17 +1,26 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: 'help',
-    execute(message, args) {
-        const { prefix, token } = require('../index.js');
-        const embed = new Discord.MessageEmbed()
+  name: "help",
+  aliases: ["h"],
+  description: "Display all commands and descriptions",
+  execute(message) {
+    let commands = message.client.commands.array();
 
-        embed.setDescription("<a:008_nhubtown:765985914731495454> **Nocturnal Hub** <a:008_nhubtown:765985914731495454>\n\nHere is the list of commands you can use!\n\nWith these fun commands, you can either type the commands alone or tag someone!\n\n**Greetings**:\n> .gm, gn, wave, welcome\n\n**Actions**:\n> .bite, cuddle, hug, kill, kiss, .lick,  .pat, poke, punch, slap, shrug\n\n**Emotion**:\n> .blush, cry, fu, pout, sleepy, smile, tired\n\n**Others**:\n> .avatar, ping, invite")
-        embed.setFooter('Nocturnal Hub')
-        message.channel.send(embed)
+    let helpEmbed = new MessageEmbed()
+      .setTitle("Vanderbot Help")
+      .setDescription("List of all commands")
 
+    commands.forEach((cmd) => {
+      helpEmbed.addField(
+        `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
+        `${cmd.description}`,
+        true
+      );
+    });
 
+    helpEmbed.setTimestamp();
 
-    }
-
+    return message.channel.send(helpEmbed).catch(console.error);
+  }
 };

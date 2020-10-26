@@ -1,92 +1,151 @@
-/**
- * Module Imports
- */
-const { Client, Collection } = require('discord.js');
-const { readdirSync } = require("fs");
-const { join } = require("path");
+const Discord = require('discord.js')
+const bot = new Discord.Client();
+const client = new Discord.Client();
+const prefix = '.';
+const fs = require('fs');
+client.commands = new Discord.Collection();
 
-let TOKEN, PREFIX;
-try {
-  const config = require("./config.json");
-  TOKEN = config.TOKEN;
-  PREFIX = config.PREFIX;
-} catch (error) {
-  TOKEN = process.env.TOKEN;
-  PREFIX = process.env.PREFIX;
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
 }
 
-const client = new Client({ disableMentions: "everyone" });
-
-client.login(TOKEN);
-client.commands = new Collection();
-client.prefix = PREFIX;
-client.queue = new Map();
-const cooldowns = new Collection();
-const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-/**
- * Client Events
- */
-client.on("ready", () => {
-  console.log(`${client.user.username} ready!`);
-  client.user.setActivity(`${PREFIX}help`);
+client.once('ready', () => {
+   console.log('Bot is online');
+   client.user.setActivity('Nocturnal Hub server', { type : 'WATCHING'}).catch(console.error)
 });
-client.on("warn", (info) => console.log(info));
-client.on("error", console.error);
 
-/**
- * Import all commands
- */
-const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) => file.endsWith(".js"));
-for (const file of commandFiles) {
-  const command = require(join(__dirname, "commands", `${file}`));
-  client.commands.set(command.name, command);
+client.on('guildMemberAdd', member =>{
+   const channel = member.guild.channels.cache.find(channel => channel.name === '﹕general-chat');
+   if(!channel) return;
+
+   channel.send(`${member}`)
+});
+
+client.on('guildMemberAdd', member =>{
+   const channel = member.guild.channels.cache.find(channel => channel.name === '﹕general-chat');
+   if(!channel) return;
+
+   const embed = new Discord.MessageEmbed()
+
+ embed.setTitle("Welcome to Nocturnal Hub!")
+ embed.setThumbnail(member.user.displayAvatarURL())
+ embed.setDescription(`> We are pleased to have you here, ${member}!  <a:011_nhub:762401995188469810>\n> Read the server information in <#746767768547754095>\n> You can get self roles in <#757120102566199337>\n\n> Welcome to our community and we hope you enjoy your stay here!\n\n\n`)
+ embed.setImage('https://cdn.discordapp.com/attachments/765662435436134402/769013221344280596/NH.gif')
+ embed.setColor('#663890')
+ embed.addField('Total Members', member.guild.memberCount, true)
+ embed.setFooter("Nocturnal Hub")
+
+   channel.send(embed)
+});
+
+client.on('message', async message =>{
+   if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+   const embed = new Discord.MessageEmbed()
+   const args = message.content.slice(prefix.length).split(/ +/);
+   const command = args.shift().toLowerCase();
+
+   if(command === 'avatar'){
+      client.commands.get('avatar').execute(message, args);
+   }
+   if(command === 'help'){
+      client.commands.get('help').execute(message, args);
+   }  
+
+if(command === 'welcome'){
+      client.commands.get('welcome').execute(message, args);
+  }
+  
+if(command === 'gm'){
+   client.commands.get('gm').execute(message, args);
 }
 
-client.on("message", async (message) => {
-  if (message.author.bot) return;
-  if (!message.guild) return;
+if(command === 'slap'){
+   client.commands.get('slap').execute(message, args);
+}
 
-  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`);
-  if (!prefixRegex.test(message.content)) return;
+if(command === 'cry'){
+   client.commands.get('cry').execute(message, args);
+}
 
-  const [, matchedPrefix] = message.content.match(prefixRegex);
+if(command === 'hug'){
+   client.commands.get('hug').execute(message, args);
+}
 
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const commandName = args.shift().toLowerCase();
+if(command === 'kill'){
+   client.commands.get('kill').execute(message, args);
+}
 
-  const command =
-    client.commands.get(commandName) ||
-    client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
+if(command === 'blush'){
+   client.commands.get('blush').execute(message, args);
+}
 
-  if (!command) return;
+if(command === 'pout'){
+   client.commands.get('pout').execute(message, args);
+}
 
-  if (!cooldowns.has(command.name)) {
-    cooldowns.set(command.name, new Collection());
-  }
+if(command === 'smile'){
+   client.commands.get('smile').execute(message, args);
+}
+ 
+if(command === 'kiss'){
+   client.commands.get('kiss').execute(message, args);
+}
+ 
+if(command === 'pat'){
+   client.commands.get('pat').execute(message, args);
+}
+ 
+if(command === 'smug'){
+   client.commands.get('smug').execute(message, args);
+}
+ 
+if(command === 'shrug'){
+   client.commands.get('shrug').execute(message, args);
+}
+ 
+if(command === 'cuddle'){
+   client.commands.get('cuddle').execute(message, args);
+}
+ 
+if(command === 'wave'){
+   client.commands.get('wave').execute(message, args);
+}
 
-  const now = Date.now();
-  const timestamps = cooldowns.get(command.name);
-  const cooldownAmount = (command.cooldown || 1) * 1000;
+if(command === 'sleepy'){
+   client.commands.get('sleepy').execute(message, args);
+}
 
-  if (timestamps.has(message.author.id)) {
-    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+if(command === 'tired'){
+   client.commands.get('tired').execute(message, args);
+}
 
-    if (now < expirationTime) {
-      const timeLeft = (expirationTime - now) / 1000;
-      return message.reply(
-        `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
-      );
-    }
-  }
+if(command === 'lick'){
+   client.commands.get('lick').execute(message, args);
+}
 
-  timestamps.set(message.author.id, now);
-  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+if(command === 'punch'){
+   client.commands.get('punch').execute(message, args);
+}
 
-  try {
-    command.execute(message, args);
-  } catch (error) {
-    console.error(error);
-    message.reply("There was an error executing that command.").catch(console.error);
-  }
+if(command === 'gn'){
+   client.commands.get('gn').execute(message, args);
+}
+
+if(command === 'poke'){
+   client.commands.get('poke').execute(message, args);
+}
+
+if(command === 'bite'){
+   client.commands.get('bite').execute (message, args);
+}
+
+if(command === 'fu'){
+   client.commands.get('fu').execute(message, args);
+}
+
 });
+client.login('NzU3NTA4MjE5MzYxODIwNjcz.X2hagQ.yPSVCljLctCdBAAwHM5RFWqFB2g');

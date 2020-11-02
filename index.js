@@ -146,9 +146,25 @@ client.on('message', async message => {
       client.commands.get('bite').execute(message, args);
    }
 
+   if (command === 'embed') {
+      client.commands.get('embed').execute(message, args);
+   }
+   if (command === 'cf') {
+      client.commands.get('cf').execute(message, args);
+   }
+   if (command === 'dc') {
+      client.commands.get('dc').execute(message, args);
+   }
+   if (command === 'ily') {
+      client.commands.get('ily').execute(message, args);
+   }
+   if (command === 'dance') {
+      client.commands.get('dance').execute(message, args);
+   }
    if (command === 'fu') {
       client.commands.get('fu').execute(message, args);
    }
+
 
 });
 client.login(process.env.token);

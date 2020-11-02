@@ -12,7 +12,6 @@ module.exports = {
         embed.setImage('https://cdn.discordapp.com/attachments/765662435436134402/771919929858588672/karaokenight.gif')
         embed.setThumbnail('https://cdn.discordapp.com/attachments/765662435436134402/771930777725829140/911a33e4b40c488251e6d241bdbba274-dynamic-microphone-icon.png')
         embed.setFooter('Nocturnal Hub')
-        embed.setColor('#aff2b6')
         message.channel.send(embed)
 
     }

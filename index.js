@@ -48,6 +48,20 @@ client.on('message', async message => {
    const args = message.content.slice(prefix.length).split(/ +/);
    const command = args.shift().toLowerCase();
 
+   if (command == 'cf') {
+      function doRandHT() {
+         var rand = ['Outcome: Heads!', 'Outcome: Tails!'];
+
+         return rand[Math.floor(Math.random() * rand.length)];
+      }
+
+      const embed = {
+         "title": `Coin flipped!`,
+         "description": doRandHT(),
+      };
+      message.channel.send({ embed });
+   }
+
    if (command === 'avatar') {
       client.commands.get('avatar').execute(message, args);
    }
@@ -163,20 +177,6 @@ client.on('message', async message => {
    }
    if (command === 'fu') {
       client.commands.get('fu').execute(message, args);
-   }
-
-   if (command == 'cf') {
-      function doRandHT() {
-         var rand = ['Outcome: Heads!', 'Outcome: Tails!'];
-
-         return rand[Math.floor(Math.random() * rand.length)];
-      }
-
-      const embed = {
-         "title": `Coin flipped!`,
-         "description": doRandHT(),
-      };
-      message.channel.send({ embed });
    }
 
 });

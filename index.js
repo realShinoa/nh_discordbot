@@ -165,6 +165,19 @@ client.on('message', async message => {
       client.commands.get('fu').execute(message, args);
    }
 
+   if (command == 'cf') {
+      function doRandHT() {
+         var rand = ['Outcome: Heads!', 'Outcome: Tails!'];
+
+         return rand[Math.floor(Math.random() * rand.length)];
+      }
+
+      const embed = {
+         "title": `Coin flipped!`,
+         "description": doRandHT(),
+      };
+      message.channel.send({ embed });
+   }
 
 });
 client.login(process.env.token);

@@ -21,7 +21,7 @@ client.on('guildMemberAdd', member => {
    const channel = member.guild.channels.cache.find(channel => channel.name === 'general-chat');
    if (!channel) return;
 
-   channel.send(`${member}`)
+   message.channel.send(`${member}`)
 });
 
 client.on('message', async message => {

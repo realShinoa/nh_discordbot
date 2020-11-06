@@ -12,15 +12,15 @@ for (const file of commandFiles) {
    client.commands.set(command.name, command);
 }
 
-client.once('ready', () => {
-   console.log('Bot is online');
-   client.user.setActivity('Nocturnal Hub', { type: 'WATCHING' }).catch(console.error)
-});
-
 client.on('guildMemberAdd', member => {
    const channel = member.guild.channels.cache.find(ch => ch.name === ': general-chat');
    if (!channel) return;
    channel.send(`Welcome to the server, ${member}`);
+});
+
+client.once('ready', () => {
+   console.log('Bot is online');
+   client.user.setActivity('Nocturnal Hub', { type: 'WATCHING' }).catch(console.error)
 });
 
 client.on('message', async message => {

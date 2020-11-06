@@ -41,6 +41,7 @@ client.on('guildMemberAdd', member => {
    channel.send(embed)
 });
 
+
 client.on('message', async message => {
    if (!message.content.startsWith(prefix) || message.author.bot) return;
 

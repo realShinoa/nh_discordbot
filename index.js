@@ -12,14 +12,17 @@ for (const file of commandFiles) {
 }
 
 client.on('guildMemberAdd', member => {
-   const channel = member.guild.channels.cache.find(ch => ch.name === ': general-chat');
+   // Send the message to a designated channel on a server:
+   const channel = member.guild.channels.cache.find(ch => ch.name === '﹕general-chat');
+   // Do nothing if the channel wasn't found on this server
    if (!channel) return;
+   // Send the message, mentioning the member
    channel.send(`Welcome to the server, ${member}`);
 });
 
 client.once('ready', () => {
    console.log('Bot is online');
-   client.user.setActivity('Nocturnal Hub', { type: 'WATCHING' }).catch(console.error)
+   client.user.setActivity('Nocturnal Hub server', { type: 'WATCHING' }).catch(console.error)
 });
 
 client.on('message', async message => {

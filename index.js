@@ -11,15 +11,17 @@ for (const file of commandFiles) {
    client.commands.set(command.name, command);
 }
 
+'use strict';
+
 client.on('guildMemberAdd', member => {
-   const channel = member.guild.channels.cache.find(channel => channel.name === '﹕general-chat');
+   const channel = member.guild.channels.cache.find(ch => ch.name === '﹕general-chat')
    if (!channel) return;
 
    channel.send(`${member}`);
 });
 
 client.on('guildMemberAdd', member => {
-   const channel = member.guild.channels.cache.find(channel => channel.name === '﹕general-chat');
+   const channel = member.guild.channels.cache.find(ch => ch.name === '﹕general-chat');
    if (!channel) return;
 
    const embed = new Discord.MessageEmbed()

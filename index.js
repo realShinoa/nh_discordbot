@@ -15,7 +15,7 @@ client.on('guildMemberAdd', member => {
    const channel = member.guild.channels.cache.find(channel => channel.name === '﹕general-chat');
    if (!channel) return;
 
-   channel.send(`${member}`)
+   channel.send(`${member}`);
 });
 
 client.on('guildMemberAdd', member => {
@@ -24,15 +24,14 @@ client.on('guildMemberAdd', member => {
 
    const embed = new Discord.MessageEmbed()
 
-   embed.setTitle("Welcome to Nocturnal Hub!")
-   embed.setThumbnail(member.user.displayAvatarURL())
-   embed.setDescription(`> We are pleased to have you here, ${member}!  <a:011_nhub:762401995188469810>\n> Read the server information in <#746767768547754095>\n> You can get self roles in <#757120102566199337>\n\n> Welcome to our community and we hope you enjoy your stay here!\n\n\n`)
-   embed.setImage('https://cdn.discordapp.com/attachments/765662435436134402/769013221344280596/NH.gif')
-   embed.setColor('#e6a7ff')
-   embed.addField('Total Members', member.guild.memberCount, true)
-   embed.setFooter("Nocturnal Hub")
+      .setTitle("Welcome to Nocturnal Hub!")
+      .setThumbnail(member.user.displayAvatarURL())
+      .setImage('https://cdn.discordapp.com/attachments/765662435436134402/769013221344280596/NH.gif')
+      .setColor('#e6a7ff')
+      .addField('Total Members', member.guild.memberCount, true)
+      .setFooter("Nocturnal Hub")
 
-   channel.send(embed)
+   channel.send(embed);
 });
 
 client.once('ready', () => {

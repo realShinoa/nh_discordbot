@@ -95,6 +95,9 @@ client.on('message', async message => {
    if (command === 'kiss') {
       client.commands.get('kiss').execute(message, args);
    }
+   if (command === 'hbd') {
+      client.commands.get('hbd').execute(message, args);
+   }
 
    if (command === 'pat') {
       client.commands.get('pat').execute(message, args);

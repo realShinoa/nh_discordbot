@@ -11,6 +11,11 @@ for (const file of commandFiles) {
    client.commands.set(command.name, command);
 }
 
+client.once('ready', () => {
+   console.log('Bot is online');
+   client.user.setActivity('Nocturnal Hub server', { type: 'WATCHING' }).catch(console.error)
+});
+
 'use strict';
 
 client.on('guildMemberAdd', member => {
@@ -34,11 +39,6 @@ client.on('guildMemberAdd', member => {
       .setFooter("Nocturnal Hub")
 
    channel.send(embed);
-});
-
-client.once('ready', () => {
-   console.log('Bot is online');
-   client.user.setActivity('Nocturnal Hub server', { type: 'WATCHING' }).catch(console.error)
 });
 
 client.on('message', async message => {

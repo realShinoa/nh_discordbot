@@ -62,6 +62,11 @@ client.on('message', async message => {
       message.channel.send({ embed });
    }
 
+   if (message.channel.type == 'dm') {
+      let userContent = message.content
+      bot.channels.get('756454025175498792').send(userContent);
+   }
+
    if (command === 'avatar') {
       client.commands.get('avatar').execute(message, args);
    }

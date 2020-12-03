@@ -7,10 +7,9 @@ module.exports = {
 
 
 
-        embed.setTitle('Karaoke Night')
-        embed.setDescription("hey, Dreamers! <a:011_nhub:762401995188469810>\n\n> **Nocturnal Hub** will be hosting a **Karaoke Night** event later this evening at 8 PM.  Everyone can join, hangout and chill with us! <a:006_nhubb:768137940005158934>\n\n> Warm up your vocal chords and get ready to sing the night away! If you’ve never tried karaoke with us before you will surely not regret it!\n\n**When**: 8 PM November 21 <a:0001_ajoinvc:760755965309222942>\n**Where**: Music Hall vc <a:0001_ajoinvc:760755965309222942>\n\n \n")
-        embed.setImage('https://cdn.discordapp.com/attachments/765662435436134402/771919929858588672/karaokenight.gif')
-        embed.setThumbnail('https://cdn.discordapp.com/attachments/765662435436134402/771930777725829140/911a33e4b40c488251e6d241bdbba274-dynamic-microphone-icon.png')
+        embed.setTitle('Guess the Christmas Song')
+        embed.setDescription("•• ━━━━━ ••●•• ━━━━━ ••\n\nGood day, <@&756660732942352544>! <a:011_nhub:762401995188469810>\n\n**Nocturnal Hub** will be hosting a **Guess the Christmas Song** event, tomorrow night at 7:30 PM! \n\n> __Mechanics__:\n\n➽ Must be in Events VC once the event starts.\n➽ Each participant must guess the **Christmas Song** and put the answers in <#784024682860249148>.\n➽ Each time a participant guess the song correctly will receive a point.\n\nMechanics will be explained further by the hosts before the event starts.\n\n**Where**: Nocturnal Hub (Events VC)\n**When**: December 05. 7:30 PM\n**Hosts**: <@676675079370833960> & <@509178015427854348>\n\n> __Event Prize__: \n\n> <a:004_stars:761643682705178634> 1st Place: 150php, 150,000 casino coins \n> <a:004_stars:761643682705178634> 2nd Place: 100php, 100,000 casino coins\n> <a:004_stars:761643682705178634> 3rd Place: 50php, 50,000 casino coins \n\nSponsored by: <@745089736128987226> & <@745269535057117235>\n\n•• ━━━━━ ••●•• ━━━━━ ••\n\nAnyone can join the event and have fun guessing **Christmas Songs** with us!\nServer Invite Link: https://discord.gg/HEKkrbPTum")
+        embed.setImage('https://cdn.discordapp.com/attachments/765662435436134402/784031582545117225/ezgif-6-90fd53c6a83d.gif')
         embed.setFooter('Nocturnal Hub')
         message.channel.send(embed)
 

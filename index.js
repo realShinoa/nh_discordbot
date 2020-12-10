@@ -81,7 +81,6 @@ client.on('message', async message => {
             message.channel.send(embed2)
 
             const embed3 = new Discord.MessageEmbed()
-               .setAuthor('<a:008_nhubtown:765985914731495454> Staff Information <a:008_nhubtown:765985914731495454>')
                .setDescription("<a:008_nhubtown:765985914731495454> **STAFF POSITIONS** <a:008_nhubtown:765985914731495454>\n\n<@&761580701866655772>\n<@&761580706324938783>\n<@&761580716513034240>\n<@&762349900393480243>\n<@&759481868725911552>\n<@&761847043932946442>\n\n **How to apply as a staff?**  <a:004_stars:761643682705178634>\nRequirements for staff application:\n\n➽ User must be level 20 in the server.\n➽ User must be active in the server, both voice and text channels.\n➽ User must have the experience/knowledge on how to manage and moderate a server.\n➽ User must submit a form.\n\nForm link: https://docs.google.com/forms/d/16xSwRcSG-nC30_UdnAuiEYVREw8fxUQJgZxOGyuPKqo/prefill\n\n⇁ We must first review your application before reaching out. Applicants must also show and prove the following requirements. We ask for your patience.")
             message.channel.send(embed3)
 

@@ -69,9 +69,10 @@ client.on('message', async message => {
 
       switch (args[0]) {
          case 'info':
+
             const embed = new Discord.MessageEmbed()
                .setAuthor('Information')
-               .setDescription("**__Nocturnal Hub__** is a friendly discord community open to everyone who would like to socialize, make friends, interact daily, play games, and much more! A fun and safe environment for everyone to hang out and join server activities such as events, giveaways and tournaments. <a:011_nhub:762401995188469810>")
+               .setDescription("<a:008_nhubtown:765985914731495454> **__Nocturnal Hub__** <a:008_nhubtown:765985914731495454> is a friendly discord community open to everyone who would like to socialize, make friends, interact daily, play games, and much more! A fun and safe environment for everyone to hang out and join server activities such as events, giveaways and tournaments. <a:011_nhub:762401995188469810>")
             message.channel.send(embed)
 
             const embed2 = new Discord.MessageEmbed()
@@ -81,7 +82,7 @@ client.on('message', async message => {
 
             const embed3 = new Discord.MessageEmbed()
                .setAuthor('Staff Information')
-               .setDescription("<a:008_nhubtown:765985914731495454> **STAFF POSITIONS <a:008_nhubtown:765985914731495454>\n\n<@&762339091127074826>\n<@&761580701866655772>\n<@&761580706324938783>\n<@&761580716513034240>\n<@&762349900393480243>\n<@&759481868725911552>\n<@&761847043932946442>\n\n**How to apply as a staff?**  <a:004_stars:761643682705178634>\nRequirements for staff application:\n\n➽ User must be level 20 in the server.\n➽ User must be active in the server, both voice and text channels.\n➽ User must have the experience/knowledge on how to manage and moderate a server.\n➽ User must submit a form.\n\nForm link: https://docs.google.com/forms/d/16xSwRcSG-nC30_UdnAuiEYVREw8fxUQJgZxOGyuPKqo/prefill\n\n⇁ We must first review your application before reaching out. Applicants must also show and prove the following requirements. We ask for your patience.")
+               .setDescription("<a:008_nhubtown:765985914731495454> **STAFF POSITIONS <a:008_nhubtown:765985914731495454>\n\n<@&762339091127074826>\n<@&761580701866655772>\n<@&761580706324938783>\n<@&761580716513034240>\n<@&762349900393480243>\n<@&759481868725911552>\n<@&761847043932946442>\n\n **How to apply as a staff?**  <a:004_stars:761643682705178634>\nRequirements for staff application:\n\n➽ User must be level 20 in the server.\n➽ User must be active in the server, both voice and text channels.\n➽ User must have the experience/knowledge on how to manage and moderate a server.\n➽ User must submit a form.\n\nForm link: https://docs.google.com/forms/d/16xSwRcSG-nC30_UdnAuiEYVREw8fxUQJgZxOGyuPKqo/prefill\n\n⇁ We must first review your application before reaching out. Applicants must also show and prove the following requirements. We ask for your patience.")
             message.channel.send(embed3)
 
             const embed4 = new Discord.MessageEmbed()
@@ -90,7 +91,10 @@ client.on('message', async message => {
 
             const embed5 = new Discord.MessageEmbed()
                .setDescription("**BOOSTER PERKS**\nUsers who boosts the server will get special perks in the server!\n\n➽ 5 slots of emojis\n➽ Custom color and Custom role!\n➽ gains the exclusive <@&756884169174417431>\n➽ Change nickname permission.\n➽ creates a voice channel of your own! [Users who boost the server for more than twice only]\n\n**SPONSOR PERKS**\nUser who sponsors for events and tournaments will get special perks in the server!\n\n➽ gains the <@&759035047679885325>\n➽ Custom color and Custom role!\n➽ Change nickname permission.\n➽ can change rules and permissions of events/tournaments.\n\nDM <@&766110897764433970> or any of the <@&761847043932946442> members.")
+               .setThumbnail('https://cdn.discordapp.com/attachments/757440073619996814/767029460331134986/boost.cb45e94.png')
             message.channel.send(embed5)
+
+            message.channel.send("Want to invite your friends? Invite Link: https://discord.gg/3nRvX8N")
             break;
 
       }

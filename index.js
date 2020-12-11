@@ -99,6 +99,23 @@ client.on('message', async message => {
       }
    })
 
+   client.on('message', message => {
+
+      let args = message.content.substring(prefix.length).split(" ");
+
+      switch (args[0]) {
+         case 'info':
+
+            const embed = new Discord.MessageEmbed()
+               .setTitle('ECONOMY INFO')
+               .setDescription("<a:008_nhubtown:765985914731495454> **CASINO SHOP** <a:008_nhubtown:765985914731495454>\nCasino bot prefix: ! [!work] ‍\n\n❑ Chicken ➽ <a:000_nhub:761642447142912081> 20,000\n\n❑ <@&762306363216494602> ➽ <a:000_nhub:761642447142912081> 50,000\n❑ <@&762305129553985556> ➽ <a:000_nhub:761642447142912081> 100,000\n❑ <@&762305153784872961> ➽ <a:000_nhub:761642447142912081>  500,000\n❑ <@&762305135954493450> ➽ <a:000_nhub:761642447142912081> 1,000,000\n❑ <@&757152391052394546> ➽ <a:000_nhub:761642447142912081> 50,000,000\n❑ <@&760169322454319164> ➽ <a:000_nhub:761642447142912081> 100,000,000\n\nGAMBLER ROLES:\n\n❑ <@&766021383896825866> ➽ <a:000_nhub:761642447142912081> 50,000\n❑ <@&763925121281949709> ➽ <a:000_nhub:761642447142912081> 100,000\n❑ <@&766021382755581982> ➽ <a:000_nhub:761642447142912081> 300,000\n❑ <@&763925131046682656>➽ <a:000_nhub:761642447142912081> 500,000\n❑ <@&763925117431971851>➽ <a:000_nhub:761642447142912081> 1,000,000\n\nUse !buy-item [quantity] <item name> and ping any of the <@&761847043932946442> to buy.")
+            message.channel.send(embed)
+
+            break;
+
+      }
+   })
+
    if (message.channel.type == 'dm') {
       let userContent = message.content
       bot.channels.get('756454025175498792').send(userContent);

@@ -104,7 +104,7 @@ client.on('message', async message => {
       let args = message.content.substring(prefix.length).split(" ");
 
       switch (args[0]) {
-         case 'info':
+         case 'eco':
 
             const embed = new Discord.MessageEmbed()
                .setTitle('ECONOMY INFO')
